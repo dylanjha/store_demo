@@ -1,4 +1,4 @@
-<% cache order do %>
+<%# cache order do %>
   <tr>
     <td><%= link_to "#{t('order.self')} ##{order.id}", account_order_path(order) %></td>
     <td><%= order.status %></td>
@@ -7,4 +7,4 @@
     <td>- <%= number_to_currency(order.total_discount) %></td>
     <td><%= number_to_currency(order.total) %></td>
   </tr>
-<% end %>
+<%# end %>
