@@ -1,11 +1,11 @@
 module Search
   def self.filter_products(params = {})
     scope = if params[:category_id].present?
-      Category.find(params[:category_id]).products
+      Category.find(params[:category_id]).products.includes(:sales, {:categories => :sales})
     elsif params[:search].present?
-      Product.for_term(params[:search])
+      Product.includes(:sales, {:categories => :sales}).for_term(params[:search])
     else
-      Product.scoped
+      Product.includes(:sales, {:categories => :sales}).scoped
     end
     scope.active.paginate(:page => (params[:page] || 1), :per_page => 24)
   end

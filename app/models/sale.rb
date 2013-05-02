@@ -10,6 +10,10 @@ class Sale < ActiveRecord::Base
                           inclusion: { in: 1..100,
                           message: "percent must be between 1-100" }
 
+  belongs_to :saleable, polymorphic: true
+
+  default_scope where(status: 'active')
+
   def item
     group.classify.constantize.find(foreign_key)
   end

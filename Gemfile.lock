@@ -255,6 +255,7 @@ DEPENDENCIES
   newrelic_rpm
   pg
   poltergeist
+  pry
   puma
   quiet_assets
   rack-mini-profiler

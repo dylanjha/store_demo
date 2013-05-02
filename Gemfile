@@ -37,6 +37,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'poltergeist'
   gem 'rack-mini-profiler'
+  gem 'pry'
 end
 
 group :test do

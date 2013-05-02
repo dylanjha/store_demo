@@ -17,6 +17,8 @@ class Product < ActiveRecord::Base
       where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{term.downcase}%", "%#{term.downcase}%")
   }
 
+  has_many :sales, as: :saleable, foreign_key: :foreign_key
+
   def toggle_status
     if status == 'active'
       update_attributes(status: 'retired')
@@ -61,14 +63,12 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def product_sales
-    Sale.where(group: 'product').
-         where(status: 'active').
-         where(foreign_key: self.id)
-  end
+  # def product_sales
+  #   sales.where(status: 'active')
+  # end
 
   def percent_of_product
-    sales_products = product_sales.map do |product_sale|
+    sales_products = sales.map do |product_sale|
       (100 - product_sale.percent_off) / BigDecimal.new('100')
     end
 
@@ -79,9 +79,7 @@ class Product < ActiveRecord::Base
   end
 
   def category_sales
-    Sale.where(group: 'category')
-        .where(status: 'active')
-        .where(foreign_key: category_ids)
+    categories.flat_map(&:sales)
   end
 
   def thumbnail_path
