@@ -8,6 +8,6 @@ class StoreConfig
   end
 
   def self.email_address
-    "katrina@jumpstartlab.com"
+    "dylanjhaveri@gmail.com"
   end
 end
