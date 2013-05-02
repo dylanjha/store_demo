@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130502030337) do
-=======
-ActiveRecord::Schema.define(:version => 20130502033420) do
->>>>>>> 848a0638c5c6d9e061bdeb2cb3b30a74862a0ee3
+ActiveRecord::Schema.define(:version => 20130502051758) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -84,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20130502033420) do
     t.datetime "updated_at",                   :null => false
     t.string   "saleable_type"
   end
+
+  add_index "sales", ["foreign_key"], :name => "index_sales_on_foreign_key"
 
   create_table "users", :force => true do |t|
     t.string   "email"
