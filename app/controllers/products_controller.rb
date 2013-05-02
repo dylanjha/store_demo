@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
   def show
     session[:return_to] = request.fullpath
-    @product = Product.includes(:sales, {:categories => :sales}).find(params[:id])
+    @product = Product.includes(:order_items, :sales, {:categories => :sales}).find(params[:id])
     @ratings = Rating.where(product_id: params[:id])
   end
 end

@@ -20,6 +20,7 @@ class Product < ActiveRecord::Base
   # scope :load_categories_and_sales, { includes(:sales, {:categories => :sales}) }
 
   has_many :sales, as: :saleable, foreign_key: :foreign_key
+  has_many :order_items
 
   def toggle_status
     if status == 'active'
