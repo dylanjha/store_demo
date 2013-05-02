@@ -92,6 +92,8 @@ GEM
     guard-rspec (2.6.0)
       guard (>= 1.8)
       rspec (~> 2.13)
+    heroku-deflater (0.4.1)
+      rack (~> 1.4.5)
     hike (1.2.2)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   guard-rspec
+  heroku-deflater
   jquery-rails
   launchy
   newrelic_rpm
