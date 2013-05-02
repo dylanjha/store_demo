@@ -17,6 +17,8 @@ class Product < ActiveRecord::Base
       where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{term.downcase}%", "%#{term.downcase}%")
   }
 
+  # scope :load_categories_and_sales, { includes(:sales, {:categories => :sales}) }
+
   has_many :sales, as: :saleable, foreign_key: :foreign_key
 
   def toggle_status
