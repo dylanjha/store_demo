@@ -25,11 +25,9 @@
 
   <br/>
 
-  <% cache @products do %>
-    <div id="product_listing" class="row-fluid">
-      <%= render @products %>
-    </div>
-  <% end %>
+  <div id="product_listing" class="row-fluid">
+    <%= render @products %>
+  </div>
 
   <%= will_paginate @products %>
 
