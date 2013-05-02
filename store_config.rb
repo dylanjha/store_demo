@@ -4,7 +4,7 @@ class StoreConfig
   end
 
   def self.production_url
-    "http://sample-store-demo.herokuapp.com"
+    "http://peaceful-anchorage-4472.herokuapp.com"
   end
 
   def self.email_address
